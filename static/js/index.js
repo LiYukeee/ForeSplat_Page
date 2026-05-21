@@ -1,5 +1,49 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
+// Theme Toggle
+function toggleTheme() {
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateThemeIcon(next);
+
+    var btn = document.querySelector('.theme-toggle');
+    btn.classList.add('rotate');
+    setTimeout(function() { btn.classList.remove('rotate'); }, 300);
+}
+
+function updateThemeIcon(theme) {
+    var icon = document.querySelector('.theme-toggle i');
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Initialize theme icon on load
+(function() {
+    var theme = document.documentElement.getAttribute('data-theme') || 'light';
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() { updateThemeIcon(theme); });
+    } else {
+        updateThemeIcon(theme);
+    }
+})();
+
+// Listen for system theme changes (only when user hasn't manually set preference)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    if (!localStorage.getItem('theme')) {
+        var theme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+    }
+});
+
 // More Works Dropdown Functionality
 function toggleMoreWorks() {
     const dropdown = document.getElementById('moreWorksDropdown');
