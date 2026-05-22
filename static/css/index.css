@@ -329,6 +329,18 @@ body {
   padding: 1rem 0;
 }
 
+.results-carousel .slider,
+.results-carousel .slider-container {
+  min-height: 400px;
+}
+
+.results-carousel .slider-item {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
 .results-carousel .item {
   margin: 1rem;
   overflow: hidden;
@@ -339,6 +351,12 @@ body {
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  height: 100%;
 }
 
 .results-carousel .item:hover {
@@ -347,11 +365,13 @@ body {
 }
 
 .results-carousel .item img,
-.results-carousel video {
+.results-carousel .item video {
   margin: 0;
   border-radius: var(--border-radius);
   width: 100%;
   height: auto;
+  max-height: 70vh;
+  object-fit: contain;
 }
 
 .results-carousel .subtitle {

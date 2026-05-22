@@ -323,6 +323,51 @@
 </section>
 <!-- End Method -->
 
+<!-- Experimental Results -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+    <h2 class="title is-3">Experimental Results</h2>
+    </div>
+    <div class="container is-max-desktop">
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+        <img src="static/images/exp1.png" alt="Computational cost of training stages" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Computational cost of the different training stages used in our experiments.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/exp2.png" alt="Quantitative post-optimization results" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Quantitative post-optimization results. PSNR, SSIM, and LPIPS are reported on the same held-out evaluation views over 0–2,000 refinement steps. For each MetaGrad-trained model, ≈ steps denotes the number of refinement steps required to match the PSNR of its vanilla counterpart at each budget. Following the evaluation protocol of the original backbones, AnySplat is evaluated at 448×448 resolution, while Pi3X and Distill Pi3X are evaluated at 224×224 resolution.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/exp3.png" alt="Per-scene PSNR gain" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Per-scene PSNR gain at 2,000 post-optimization steps. For each backbone, each point denotes one evaluation scene and the vertical axis reports PSNR<sub>MetaGrad</sub>−PSNR<sub>vanilla</sub> at 2,000 post-optimization steps. Box plots summarize the scene-level distribution, and the inset statistics report the mean, median, and positive-scene ratio.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/exp4.png" alt="PSNR under varying wall-clock time budgets" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          PSNR performance under varying post-optimization wall-clock time budgets. The number following each backbone name denotes its feed-forward inference time, shared by both Vanilla and MetaGrad. The inference column reports the zero-step feed-forward prediction, while +1 s to +20 s denote additional post-optimization time allocated after inference.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/exp5.png" alt="Ablation of lambda on Pi3X backbone" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Ablation of λ on the Pi3X backbone. Colored PSNR cells mark the top three values in each step column, indicated by <span style="background-color: #D1B594; padding: 0 4px; border-radius: 3px;">1st</span>, <span style="background-color: #F1DEBD; padding: 0 4px; border-radius: 3px;">2nd</span>, and <span style="background-color: #FFFAD6; padding: 0 4px; border-radius: 3px;">3rd</span>, respectively.
+        </h2>
+      </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- End experimental results -->
+
+
 <!-- Gallery -->
 <section class="hero teaser is-light">
   <div class="container is-max-desktop">
@@ -353,13 +398,15 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <!-- <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre> -->
+      <pre id="bibtex-code"><code>@misc{li2026foresplatoptimizationawareforesightfeedforward,
+      title={ForeSplat: Optimization-Aware Foresight for Feed-Forward 3D Gaussian Splatting}, 
+      author={Yuke Li and Weihang Liu and Cheng Zhang and Yuefeng Zhang and Jiadi Cui and Zixuan Wang and Junran Ding and Haoyu Wu and Yujiao Shi and Jingyi Yu and Xin Lou},
+      year={2026},
+      eprint={2605.22020},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.22020}, 
+}</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
